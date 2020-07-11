@@ -17,7 +17,7 @@ class Graph:
 
     def add_edge(self, v1, v2):
         """
-        Add a directed edge to the graph.
+        Add a directed edge to the graph from v1 to v2
         """
         if v1 in self.vertices and v2 in self.vertices:
             ## then add the edge
@@ -29,14 +29,36 @@ class Graph:
         """
         Get all neighbors (edges) of a vertex.
         """
-        pass  # TODO
+        if vertex_id in self.vertices:
+            return self.vertices[vertex_id]
+        else:
+            return None
 
     def bft(self, starting_vertex):
         """
         Print each vertex in breadth-first order
         beginning from starting_vertex.
         """
-        pass  # TODO
+        # create a q and enqueue starting vertex
+        ## create a set of traversed vertices
+        ### while queue is not empty
+            ## dequeue/pop the first vertex
+            ## if not visited
+                ## Do the neighbor stuff
+                ## mark as visited
+                ## enqueue all neighbors
+        qq = Queue()
+        qq.enqueue([starting_vertex])
+        visited = set()
+        while qq.size() > 0:
+            path = qq.dequeue()
+            if path[-1] not in visited:
+                print(path[-1])
+                visited.add(path[-1])
+                for next_vert in self.get_neighbors(path[-1]):
+                    new_path = list(path)
+                    new_path.append(next_vert)
+                    qq.enqueue(new_path)
 
     def dft(self, starting_vertex):
         """
