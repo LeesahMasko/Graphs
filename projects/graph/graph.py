@@ -78,15 +78,24 @@ class Graph:
                     new_path.append(next_vert)
                     ss.push(new_path)
 
-    def dft_recursive(self, starting_vertex):
+    def dft_recursive(self, starting_vertex, visited):
         """
         Print each vertex in depth-first order
         beginning from starting_vertex.
 
         This should be done using recursion.
         """
-        pass  # TODO
-
+        ## Need an initial case
+        if visited is None:
+            visited = set()
+        ## Base cased: how do we know we are done???  We are done when we have no more neighbors
+        ## Need to track visited nodes
+        visited.add(starting_vertex)
+        print(starting_vertex)
+        ## In order for it to be recursive we need to call the function recursively on the neighbors of the NOT visited
+        for neighbor in self.vertices(starting_vertex):
+            if neighbor not in visited:
+                self.dft_recursive(neighbor, visted)
     def bfs(self, starting_vertex, destination_vertex):
         """
         Return a list containing the shortest path from
