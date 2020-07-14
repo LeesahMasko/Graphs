@@ -59,6 +59,7 @@ class Graph:
                     new_path = list(path)
                     new_path.append(next_vert)
                     qq.enqueue(new_path)
+        return None
 
     def dft(self, starting_vertex):
         """
