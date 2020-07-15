@@ -146,6 +146,7 @@ if __name__ == '__main__':
     connections = sg.get_all_social_paths(1)
     print(connections)
 
+    print()
     total_social_paths = 0
     for user_id in connections:
         total_social_paths += len(connections[user_id])
