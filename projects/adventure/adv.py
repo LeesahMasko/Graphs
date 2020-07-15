@@ -32,9 +32,11 @@ traversal_path = []
 
 
 # TRAVERSAL TEST
-visited_rooms = set()
+visited_rooms = set() # all the room IDs that have been visited in the traversal
 player.current_room = world.starting_room
 visited_rooms.add(player.current_room)
+
+# create a breadth-first-search to find the nearest room th
 
 for move in traversal_path:
     player.travel(move)
