@@ -28,15 +28,19 @@ player = Player(world.starting_room)
 # Fill this out with directions to walk
 # traversal_path = ['n', 'n']
 traversal_path = []
+visited_rooms = {}  # all the room IDs that have been visited in the traversal
 
+back_track_path = []
+opposite_dir = {"n":"s", "e":"w", "s":"n", "w":"e"}
 
 
 # TRAVERSAL TEST
-visited_rooms = set() # all the room IDs that have been visited in the traversal
+visited_rooms = set()
 player.current_room = world.starting_room
 visited_rooms.add(player.current_room)
 
-# create a breadth-first-search to find the nearest room th
+# get the first room and exits added to the visited
+#
 
 for move in traversal_path:
     player.travel(move)
